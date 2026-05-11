@@ -79,7 +79,9 @@ namespace Playnite
                     // but the actual system player used by media player is broken somehow.
                     exception.StackTrace?.Contains("MediaPlayerState") == true ||
                     // Seems to happen with script extensions somehow calling PowerShell, or from PS, via blocking ProgressDialog
-                    exception is PSInvalidOperationException)
+                    exception is PSInvalidOperationException ||
+                    // Typical issue in themes where theme dev uses color where brush should be and vice versa
+                    exception.Message.Contains("Media.Color") && exception.Message.Contains("Media.Brush"))
                 {
                     crashInfo.IsExtensionCrash = true;
                     return crashInfo;
