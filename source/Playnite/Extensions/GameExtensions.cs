@@ -204,6 +204,7 @@ namespace Playnite
                     result = result.Replace(ExpandableVariables.ImagePath, customPath);
                     result = result.Replace(ExpandableVariables.ImageNameNoExtension, Path.GetFileNameWithoutExtension(customPath));
                     result = result.Replace(ExpandableVariables.ImageName, Path.GetFileName(customPath));
+                    result = result.Replace(ExpandableVariables.ImageDir, Path.GetDirectoryName(customPath));
                 }
             }
             else if (!romPath.IsNullOrWhiteSpace() && !Paths.ContainsInvalidPathChars(romPath))
@@ -211,6 +212,7 @@ namespace Playnite
                 result = result.Replace(ExpandableVariables.ImagePath, romPath);
                 result = result.Replace(ExpandableVariables.ImageNameNoExtension, Path.GetFileNameWithoutExtension(romPath));
                 result = result.Replace(ExpandableVariables.ImageName, Path.GetFileName(romPath));
+                result = result.Replace(ExpandableVariables.ImageDir, Path.GetDirectoryName(romPath));
             }
 
             result = result.Replace(ExpandableVariables.PlayniteDirectory, PlaynitePaths.ProgramPath);
@@ -257,6 +259,7 @@ namespace Playnite
                     result = result.Replace(ExpandableVariables.ImagePath, romPath);
                     result = result.Replace(ExpandableVariables.ImageNameNoExtension, Path.GetFileNameWithoutExtension(romPath));
                     result = result.Replace(ExpandableVariables.ImageName, Path.GetFileName(romPath));
+                    result = result.Replace(ExpandableVariables.ImageDir, Path.GetDirectoryName(romPath));
                 }
             }
 
